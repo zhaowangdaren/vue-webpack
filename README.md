@@ -1,32 +1,12 @@
-# vue-webpack-boilerplate
+# vue-webpack-skeleton
 
-> A full-featured Webpack setup with hot-reload, lint-on-save, unit testing & css extraction.
+> 该工程模板基于[vuejs-templates/webpack](https://github.com/vuejs-templates/webpack)，在其基础上增加了骨架、vw适配
 
-> This template is Vue 2.0 compatible. For Vue 1.x use this command: `vue init webpack#1.0 my-project`
-
-
-# Vue-cli 3 is here, so this template is now considered deprecated.
-
-This template was the main template for vue-cli verison 2.*.
-
-Now that we have released a [stable version of vue-cli 3](https://cli.vuejs.org), which incorporates all features that this template offers (and much more), we think that this template doesn't have any significant use for the future, so we won't put much resource in developing it further.
-
-We will try and fix major issues should they arise, but not much more.
-
-Feel free to fork this template if you want to keep it alive.
-
-## Documentation
-
-- [For this template](http://vuejs-templates.github.io/webpack): common questions specific to this template are answered and each part is described in greater detail
-- [For Vue 2.0](http://vuejs.org/guide/): general information about how to work with Vue, not specific to this template
-
-## Usage
-
-This is a project template for [vue-cli](https://github.com/vuejs/vue-cli). **It is recommended to use npm 3+ for a more efficient dependency tree.**
+## 使用
 
 ``` bash
 $ npm install -g vue-cli
-$ vue init webpack my-project
+$ vue init zhaowangdaren/vue-webpack-skeleton my-project
 $ cd my-project
 $ npm install
 $ npm run dev
@@ -35,7 +15,7 @@ $ npm run dev
 This will scaffold the project using the `master` branch. If you wish to use the latest version of the webpack template, do the following instead:
 
 ``` bash
-$ vue init webpack#develop my-project
+$ vue init zhaowangdaren/vue-webpack-skeleton#develop my-project
 ```
 
 :warning: **The develop branch is not considered stable and can contain bugs or not build at all, so use at your own risk.**
@@ -50,13 +30,12 @@ The development server will run on port 8080 by default. If that port is already
   - State preserving compilation error overlay
   - Lint-on-save with ESLint
   - Source maps
+  - 暂未支持骨架，在开发时可以通过路由的方式来开发骨架页面
 
-- `npm run build`: Production ready build.
-  - JavaScript minified with [UglifyJS v3](https://github.com/mishoo/UglifyJS2/tree/harmony).
-  - HTML minified with [html-minifier](https://github.com/kangax/html-minifier).
-  - CSS across all components extracted into a single file and minified with [cssnano](https://github.com/ben-eb/cssnano).
-  - Static assets compiled with version hashes for efficient long-term caching, and an auto-generated production `index.html` with proper URLs to these generated assets.
-  - Use `npm run build --report`to build with bundle size analytics.
+- `npm run build`: 打包
+  - 首先会运行`npm run skeleton`编译`src/Skeleton.vue`生成骨架
+  - 运行`node skeleton.js`将渲染骨架内容，并将渲染后的骨架内容以index.html为模板写入`dist/index.html`
+  - 打包业务逻辑
 
 - `npm run unit`: Unit tests run in [JSDOM](https://github.com/tmpvar/jsdom) with [Jest](https://facebook.github.io/jest/), or in PhantomJS with Karma + Mocha + karma-webpack.
   - Supports ES2015+ in test files.
@@ -68,10 +47,7 @@ The development server will run on port 8080 by default. If that port is already
     - Selenium and chromedriver dependencies automatically handled.
     - Automatically spawns the Selenium server.
 
-### Fork It And Make Your Own
+- `npm run skeleton`: 编译`src/Skeleton.vue`生成骨架
 
-You can fork this repo to create your own boilerplate, and use it with `vue-cli`:
+- 支持将px转换为vw，配置见`.postcssrc.js`
 
-``` bash
-vue init username/repo my-project
-```
