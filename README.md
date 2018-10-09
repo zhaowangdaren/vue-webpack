@@ -22,6 +22,10 @@ $ vue init zhaowangdaren/vue-webpack-skeleton#develop my-project
 
 The development server will run on port 8080 by default. If that port is already in use on your machine, the next free port will be used.
 
+### 编写骨架
+
+在`src/Skeleton.vue`中编写骨架
+
 ## What's Included
 
 - `npm run dev`: first-in-class development experience.
