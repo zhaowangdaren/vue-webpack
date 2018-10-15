@@ -24,7 +24,7 @@ The development server will run on port 8080 by default. If that port is already
 
 ### 编写骨架
 
-在`src/Skeleton.vue`中编写骨架
+在`src/Skeleton.vue`中编写骨架，不支持逻辑
 
 ## What's Included
 
